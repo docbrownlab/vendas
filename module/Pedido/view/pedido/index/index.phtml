@@ -1,0 +1,31 @@
+<?php
+ 
+ $title = 'Pedidos';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+ <p>
+     <a href="<?php echo $this->url('pedido/default',
+             array('controller'=>'index','action'=>'insert'));?>">Novo</a>
+ </p>
+
+ 
+ <table class="table">
+ <tr>
+     <th>Documento</th>
+     <th>Nome</th>
+     <th>&nbsp;</th>
+ </tr>
+ <?php foreach ($pedidos as $pedido) : ?>
+ <tr>
+     <td><?php echo $this->escapeHtml($pedido->getClicod());?></td>
+     <td><?php echo $this->escapeHtml($pedido->getDescricao());?></td>
+     <td>
+         <a href="<?php echo $this->url('pedido/default',
+             array('controller'=>'index','action'=>'edit', 'id' => $album->getClicod()));?>">Edit</a>
+         <a href="<?php echo $this->url('pedido/default',
+             array('controller'=>'index','action'=>'delete', 'id' => $album->getClicod()));?>">Delete</a>
+     </td>
+ </tr>
+ <?php endforeach; ?>
+ </table>

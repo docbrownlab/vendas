@@ -1,0 +1,40 @@
+<?php
+
+$title = 'Editar Produto';
+$this->headTitle($title);
+
+?>
+
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+     
+<?php
+$form->setAttribute('action', $this->url('produto/default', 
+                    array('controller'=>'index',
+                        'action' => 'edit',
+                        'id'     => $this->id,)));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+?>
+<div class="form-group">
+    <?php echo $this->formRow($form->get('descricao'));?>
+</div>
+
+<div class="form-group">
+    <?php echo $this->formRow($form->get('valor')); ?>
+</div>
+    
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <?php echo $this->formRow($form->get('submit')); ?>
+    </div>
+</div>
+    
+    
+    <?php
+//echo $this->formRow($form->get('email'));
+//echo $this->formCollection($form);
+echo $this->form()->closeTag();
+
+?>
+

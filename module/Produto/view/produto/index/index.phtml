@@ -1,0 +1,32 @@
+<?php
+ // module/Album/view/album/album/index.phtml:
+
+ $title = 'Produtos';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+ <p>
+     <a href="<?php echo $this->url('produto/default',
+             array('controller'=>'index','action'=>'insert'));?>">Novo</a>
+ </p>
+
+ 
+ <table class="table">
+ <tr>
+     <th>Documento</th>
+     <th>Nome</th>
+     <th>&nbsp;</th>
+ </tr>
+ <?php foreach ($produtos as $produto) : ?>
+ <tr>
+     <td><?php echo $this->escapeHtml($produto->getProdcod());?></td>
+     <td><?php echo $this->escapeHtml($produto->getDescricao());?></td>
+     <td>
+         <a href="<?php echo $this->url('produto/default',
+             array('controller'=>'index','action'=>'edit', 'id' => $produto->getProdcod()));?>">Edit</a>
+         <a href="<?php echo $this->url('produto/default',
+             array('controller'=>'index','action'=>'delete', 'id' => $produto->getProdcod()));?>">Delete</a>
+     </td>
+ </tr>
+ <?php endforeach; ?>
+ </table>

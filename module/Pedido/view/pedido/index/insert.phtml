@@ -1,0 +1,128 @@
+<?php
+
+$title = 'Novo Pedido';
+$this->headTitle($title);
+
+?>
+
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+     
+<?php
+
+$this->formElementErrors()
+        ->setMessageOpenFormat('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">x</button>')
+        ->setMessageCloseString('</div>')
+        ->Render($form);
+
+
+$form2->setAttribute('action', $this->url('produto/default', array('controller'=>'index','action' => 'insert')));
+$form2->prepare();
+
+echo $this->form()->openTag($form2);
+?>
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <?php echo $this->formRow($form2->get('documento')); ?>
+    </div>
+</div>
+
+<?php
+echo $this->form()->closeTag();
+
+$form->setAttribute('action', $this->url('produto/default', array('controller'=>'index','action' => 'insert')));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+?>
+
+<div class="panel panel-info">
+  <div class="panel-heading">Cliente</div>
+  <div class="panel-body">
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">Documento</span>
+      <input type="text" class="form-control"  aria-describedby="basic-addon1">
+    </div>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+    <fieldset disabled>
+        <div class="form-group">
+          <input type="text" id="disabledTextInput" class="form-control" placeholder="Nome">
+        </div>
+    </fieldset>    
+  </div>
+</div>
+
+
+<div class="panel panel-info">
+  <div class="panel-heading">Frete</div>
+  <div class="panel-body">
+
+    <div class="form-group">
+        <?php echo $this->formRow($form->get('tpfrete')); ?>
+        <?php echo $this->formRow( $form->get('vrfrete')); ?>
+        <div class="checkbox">
+            <label>
+               <?php echo $this->formRow($form->get('nf')); ?>
+            </label>
+        </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Produto</th>
+                <th>Qtde</th>
+                <th>Vr Unitário</th>
+                <th>Cor Produto</th>
+                <th>Cor Arte</th>
+                <th>Vr Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                for ($x = 1; $x<=4; $x++){
+                    echo "<tr>"
+                    . "<th scope='row'>$x</th>
+                <td>jjjj</td>"
+                            . "<td>".$this->formRow($form->get('qtdeGrid1'))."</td>
+                <td>jjjj</td>
+                <td>jjjj</td>
+                <td>jjjj</td>
+                <td>jjjj</td>"
+                            . "</tr>";
+                    
+                    
+                }
+            ?>
+            <!--
+            <tr>
+                <th scope="row">1</th>
+                <td>jjjj</td>
+                <td>jjjj</td>
+                <td>jjjj</td>
+                <td>jjjj</td>
+                <td>jjjj</td>
+                <td>jjjj</td>
+            </tr>
+            -->
+        </tbody>
+    </table>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <?php echo $this->formRow($form->get('submit')); ?>
+    </div>
+</div>
+    
+    
+    <?php
+//echo $this->formRow($form->get('email'));
+//echo $this->formCollection($form);
+echo $this->form()->closeTag();
+
+?>
