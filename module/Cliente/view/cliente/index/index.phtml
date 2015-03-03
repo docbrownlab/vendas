@@ -6,10 +6,10 @@
  ?>
  <h1><?php echo $this->escapeHtml($title); ?></h1>
  <p>
-     <a href="<?php echo $this->url('cliente/default',
-             array('controller'=>'index','action'=>'insert'));?>">Novo</a>
+    <a class="btn btn-success" title="Novo" 
+       href="<?php echo $this->url('cliente/default',
+                 array('controller'=>'index','action'=>'insert'));?>"><span class="glyphicon glyphicon-plus"></span></a>
  </p>
-<a class="btn btn-success" title="Novo"><span class="glyphicon glyphicon-plus"></span></a>
 <div class="table-responsive">
     <table class="table table-striped table-hover">
         <thead>

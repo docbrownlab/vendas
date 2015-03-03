@@ -31,19 +31,25 @@ class ClienteForm extends Form{
 
         $radio = new Radio('tipo');
         $radio->setLabel('Tipo');
-        $radio->setValueOptions(array(
+        $radio->setAttributes(array(
+            'id'=>'radioTipo'
+        ));
+        $radio->setValueOptions(
+                array(
             '0' => 'Física',
             '1' => 'Jurídica',
         ));
+        $radio->setValue('selected');
 
         $this->add($radio);        
 
         $documento = new Text('documento');
-        $documento->setlabel('Documento')
+        $documento->setlabel('CPF')
                 ->setattributes(array(
-                    'maxlength'=>16,
-                    'size'=>10,
-                    'class'=> 'form-control input-sm '
+                    'id'=>'documento',
+                    //'maxlength'=>16,
+                    //'size'=>10,
+                    'class'=> 'form-control input-sm'
                 ));
         $this->add($documento);
         
