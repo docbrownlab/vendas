@@ -1,0 +1,38 @@
+<?php
+ 
+ $title = 'Usuários';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+ <p>
+    <a class="btn btn-success" title="Novo" 
+       href="<?php echo $this->url('usuario/default',
+                 array('controller'=>'index','action'=>'insert'));?>"><span class="glyphicon glyphicon-plus"></span></a>
+ </p>
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Login</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($registros as $registro) : ?>
+            <tr>
+                <td><?php echo $this->escapeHtml($registro->getNome());?></td>
+                <td><?php echo $this->escapeHtml($registro->getLogin());?></td>
+                <td>
+                    <a class="btn btn-xs btn-warning" title="Editar" href="<?php echo $this->url('usuario/default',
+                        array('controller'=>'index','action'=>'edit', 'id' => $registro->getIdusuario()));?>">
+                        <span class="glyphicon glyphicon-pencil"></span></a>
+                    <a class="btn btn-xs btn-danger" title="Deletar" 
+                       href="<?php echo $this->url('usuario/default',
+                        array('controller'=>'index','action'=>'delete', 'id' => $registro->getIdusuario()));?>"><span class="glyphicon glyphicon-remove"></span></a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
