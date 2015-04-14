@@ -5,6 +5,8 @@ namespace Cliente\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Utility\Entity\AbstractEntity;
 use DateTime;
+
+
 /**
  * Cliente
  *
@@ -49,6 +51,13 @@ class Cliente extends AbstractEntity
      * @ORM\Column(name="Email", type="string", length=20, nullable=false)
      */
     private $email;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Telefone1", type="integer", nullable=true)
+     */
+    private $telefone1;
 
     /**
      * @var string
@@ -98,6 +107,27 @@ class Cliente extends AbstractEntity
      * @ORM\Column(name="CEP", type="string", length=9, nullable=true)
      */
     private $cep;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Ddd2", type="integer", nullable=true)
+     */
+    private $ddd2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Telefone2", type="string", length=9, nullable=true)
+     */
+    private $telefone2;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Ddd1", type="integer", nullable=true)
+     */
+    private $ddd1;
 
 
 
@@ -201,6 +231,29 @@ class Cliente extends AbstractEntity
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Set telefone1
+     *
+     * @param integer $telefone1
+     * @return Cliente
+     */
+    public function setTelefone1($telefone1)
+    {
+        $this->telefone1 = $telefone1;
+
+        return $this;
+    }
+
+    /**
+     * Get telefone1
+     *
+     * @return integer 
+     */
+    public function getTelefone1()
+    {
+        return $this->telefone1;
     }
 
     /**
@@ -362,5 +415,74 @@ class Cliente extends AbstractEntity
     public function getCep()
     {
         return $this->cep;
+    }
+
+    /**
+     * Set ddd2
+     *
+     * @param integer $ddd2
+     * @return Cliente
+     */
+    public function setDdd2($ddd2)
+    {
+        $this->ddd2 = $ddd2;
+
+        return $this;
+    }
+
+    /**
+     * Get ddd2
+     *
+     * @return integer 
+     */
+    public function getDdd2()
+    {
+        return $this->ddd2;
+    }
+
+    /**
+     * Set telefone2
+     *
+     * @param string $telefone2
+     * @return Cliente
+     */
+    public function setTelefone2($telefone2)
+    {
+        $this->telefone2 = $telefone2;
+
+        return $this;
+    }
+
+    /**
+     * Get telefone2
+     *
+     * @return string 
+     */
+    public function getTelefone2()
+    {
+        return $this->telefone2;
+    }
+
+    /**
+     * Set ddd1
+     *
+     * @param integer $ddd1
+     * @return Cliente
+     */
+    public function setDdd1($ddd1)
+    {
+        $this->ddd1 = $ddd1;
+
+        return $this;
+    }
+
+    /**
+     * Get ddd1
+     *
+     * @return integer 
+     */
+    public function getDdd1()
+    {
+        return $this->ddd1;
     }
 }

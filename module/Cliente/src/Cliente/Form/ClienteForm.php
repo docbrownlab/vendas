@@ -48,7 +48,7 @@ class ClienteForm extends Form{
                 ->setattributes(array(
                     'id'=>'documento',
                     //'maxlength'=>16,
-                    //'size'=>10,
+                    'size'=>5,
                     'class'=> 'form-control input-sm'
                 ));
         $this->add($documento);
@@ -71,7 +71,43 @@ class ClienteForm extends Form{
                    'size'=>20,
                     'class'=> 'form-control  input-sm'
                 ));                
-        $this->add($email);        
+        $this->add($email);  
+        
+        $ddd1 = new Text('ddd1');
+        $ddd1->setLabel('DDD')
+               ->setattributes(array(
+                   'maxlength'=>2,
+                   'size'=>5,
+                    'class'=> 'form-control  input-sm'
+                ));                
+        $this->add($ddd1);  
+
+        $telefone1 = new Text('telefone1');
+        $telefone1->setLabel('Telefone')
+               ->setattributes(array(
+                   'maxlength'=>10,
+                   'size'=>20,
+                    'class'=> 'form-control  input-sm'
+                ));                
+        $this->add($telefone1);  
+
+        $ddd2 = new Text('ddd2');
+        $ddd2->setLabel('DDD')
+               ->setattributes(array(
+                   'maxlength'=>2,
+                   'size'=>5,
+                    'class'=> 'form-control  input-sm'
+                ));                
+        $this->add($ddd2);  
+
+        $telefone2 = new Text('telefone2');
+        $telefone2->setLabel('Telefone')
+               ->setattributes(array(
+                   'maxlength'=>10,
+                   'size'=>20,
+                    'class'=> 'form-control  input-sm'
+                ));                
+        $this->add($telefone2);  
         
         $logradouro = new Text('logradouro');
         $logradouro->setlabel('Logradouro')
