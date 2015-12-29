@@ -1,6 +1,6 @@
 $(function (){
     // mascara para telefone: (xx)xxxx-xxxxx
-    $("input#documento").mask("(99)9999-9999?9");
+    $("input#documento").mask("999.999.999-99");
     
     $("#radioTipo").click(function(){
         

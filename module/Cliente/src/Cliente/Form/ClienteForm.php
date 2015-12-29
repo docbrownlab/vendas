@@ -8,6 +8,7 @@ use Zend\Form\Element\Email;
 use Zend\Form\Element\Number;
 use Zend\Form\Element\Button;
 use Zend\Form\Element\Select;
+use Zend\Form\Element\Hidden;
 use Cliente\Form\ClienteFilter;
 use Utility\Functions\Functions;
 use Zend\Form\Element\Radio;
@@ -20,9 +21,9 @@ class ClienteForm extends Form{
         parent::__construct(null);
         $this->setAttribute('method', 'post');
         $this->setAttribute('role', 'form');
-        $this->setAttribute('class', '.form-inline');
+        $this->setAttribute('class', 'form-inline');
         
-        $dtcadastro = new Text('dtcadastro');
+        $dtcadastro = new Hidden('dtcadastro');
         $dtcadastro->setlabel('')
                 ->setattributes(array(
                     'value'=> date('Y-m-d')
@@ -30,7 +31,10 @@ class ClienteForm extends Form{
         $this->add($dtcadastro);
 
         $radio = new Radio('tipo');
-        $radio->setLabel('Tipo');
+        $radio->setLabel('');
+        $radio->setLabelAttributes ( array (
+            'class' => 'radio-inline'
+        ));
         $radio->setAttributes(array(
             'id'=>'radioTipo'
         ));
@@ -47,10 +51,9 @@ class ClienteForm extends Form{
         $documento->setlabel('CPF')
                 ->setattributes(array(
                     'id'=>'documento',
-                    //'maxlength'=>16,
-                    'size'=>5,
-                    'class'=> 'form-control input-sm'
-                ));
+                    'size'=>40,
+                    'class'=> 'form-control input-sm',
+                  ));
         $this->add($documento);
         
         
@@ -67,8 +70,8 @@ class ClienteForm extends Form{
         $email = new Email('email');
         $email->setLabel('E-Mail')
                ->setattributes(array(
-                   'maxlength'=>20,
-                   'size'=>20,
+                   'maxlength'=>60,
+                   'size'=>60,
                     'class'=> 'form-control  input-sm'
                 ));                
         $this->add($email);  

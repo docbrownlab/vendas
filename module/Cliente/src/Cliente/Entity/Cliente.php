@@ -48,7 +48,7 @@ class Cliente extends AbstractEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="Email", type="string", length=20, nullable=false)
+     * @ORM\Column(name="Email", type="string", length=60, nullable=false)
      */
     private $email;
 

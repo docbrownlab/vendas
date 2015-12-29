@@ -14,61 +14,88 @@ $form->prepare();
 
 echo $this->form()->openTag($form);
 ?>
-<div class="form-group">
-    <?php echo $this->formRow( $form->get('dtcadastro')); ?>
-</div>
 
-<div class="form-group">
-    <?php echo $this->formRow( $form->get('tipo')); ?>
-</div>
 
 
 <div class="form-group">
-    <?php echo $this->formRow( $form->get('documento')); ?>
-</div>
+    <div class="input-group">
 
-<div class="form-group">
-    <?php echo $this->formRow( $form->get('descricao')); 
-    echo $this->formRow($form->get('email'));?>
-</div>
+        <?= $this->formRow( $form->get('dtcadastro')); ?>
 
-<div class="form-group">
-    <?php echo $this->formRow( $form->get('ddd1')); 
-    echo $this->formRow($form->get('telefone1'));?>
-</div>
-
-<div class="form-group">
-    <?php echo $this->formRow( $form->get('ddd2')); 
-    echo $this->formRow($form->get('telefone2'));?>
-</div>
-
-<h3>Endereço <small>(Necessário quando houver frete)</small> </h3>
-<div class="form-group">
-    <?php echo $this->formRow($form->get('logradouro'));
-    echo $this->formRow($form->get('numero'));
-    echo $this->formRow($form->get('complemento'));?>
-</div>
-<div class="form-group ">
-    <?php echo $this->formRow($form->get('bairro'));
-    echo $this->formRow($form->get('cidade'));
-    echo $this->formRow($form->get('uf'));
-    ?>
-</div>
-<div class="form-group">
-    <?php echo $this->formRow($form->get('cep')); ?>
-</div>
+        <div class="row">
+            <div class="radio">
+                <?php echo $this->formRow( $form->get('tipo')); ?>
+            </div>
+        </div>
 
 
-<div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-        <?php echo $this->formRow($form->get('submit')); ?>
-    </div>
-</div>
+        <div class="row">
+            <div class="col-lg-4">
+                <?= $this->formRow( $form->get('documento')); ?>
+            </div>
+        </div>
+
+        <div class="row">   
+            <div class="col-md-8">
+                <?= $this->formRow( $form->get('descricao')); ?>
+            </div>                
+            <div class="col-md-4">
+                <?= $this->formRow($form->get('email'));?>
+            </div>                
+        </div> 
+
+        <div class="row">   
+            <div class="col-md-2">
+                <?= $this->formRow( $form->get('ddd1')); ?>
+            </div>                
+            <div class="col-md-4">
+                <?= $this->formRow($form->get('telefone1'));?>
+            </div>                
+        </div> 
+        
+        <div class="row">   
+            <div class="col-md-2">
+                <?= $this->formRow( $form->get('ddd2')); ?>
+            </div>                
+            <div class="col-md-4">
+                <?= $this->formRow($form->get('telefone2'));?>
+            </div>                
+        </div> 
+        
+        <h3>Endereço <small>(Necessário quando houver frete)</small> </h3>
+
+        <div class="row">   
+            <div class="col-md-4">
+                <?= $this->formRow( $form->get('logradouro')); ?>
+            </div>                
+            <div class="col-md-4">
+                <?= $this->formRow($form->get('numero'));?>
+            </div>                
+            <div class="col-md-4">
+                <?= $this->formRow($form->get('complemento'));?>
+            </div>                
+        </div> 
+        
+        <div class="row">   
+            <div class="col-md-4">
+                <?= $this->formRow( $form->get('bairro')); ?>
+            </div>                
+            <div class="col-md-4">
+                <?= $this->formRow($form->get('cidade'));?>
+            </div>                
+            <div class="col-md-4">
+                <?= $this->formRow($form->get('uf'));?>
+            </div>                
+        </div> 
+        <div class="row">   
+            <?= $this->formRow( $form->get('cep')); ?>
+        </div> 
+
+        <div class="col-sm-offset-2 col-sm-10">
+            <?php echo $this->formRow($form->get('submit')); ?>
+        </div>
+
+    </div> <!-- Input group -->
+</div> <!-- Form group -->
     
-    
-    <?php
-//echo $this->formRow($form->get('email'));
-//echo $this->formCollection($form);
-echo $this->form()->closeTag();
-
-?>
+    <?= $this->form()->closeTag(); ?>
